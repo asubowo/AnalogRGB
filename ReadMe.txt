@@ -16,4 +16,9 @@ Initialize an AnalogRGB object
 
 	analogStrip.fadeTo(100, 100, 100, 3); // Fade to a dimmer white with a speed of 3ms
 
-	and so forth.
+===============
+
+And so forth
+
+TODO:
+- Implement non-blocking code.
