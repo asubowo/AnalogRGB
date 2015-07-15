@@ -9,11 +9,11 @@
 #include "AnalogRGB.h"
 
 
-AnalogRGB::AnalogRGB(int redPin, int greenPin, int bluePin) {
+AnalogRGB::AnalogRGB(int _redPin, int _greenPin, int _bluePin) {
 
-	redPin = redPin;
-	greenPin = greenPin;
-	bluePin = bluePin;
+	redPin = _redPin;
+	greenPin = _greenPin;
+	bluePin = _bluePin;
 	brightness = MAX_BRIGHTNESS;
 
 	// Set the pins on the arduino
@@ -89,6 +89,10 @@ void AnalogRGB::decreaseBrightness() {
   */
 void AnalogRGB::increaseBrightness() {
 	setBrightness(brightness + BRIGHTNESS_INCREMENT);
+}
+
+void AnalogRGB::fadeTo(int newRed, int newGreen, int newBlue) {
+	fadeTo(newRed, newGreen, newBlue, DEFAULT_FADE);
 }
 
 /**

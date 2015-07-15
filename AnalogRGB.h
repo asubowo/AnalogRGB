@@ -7,7 +7,8 @@
 */
 
 
-#define _AnalogRGB.h
+#ifndef AnalogRGB_H
+#define AnalogRGB_H
 
 #include "Arduino.h"
 
@@ -24,21 +25,26 @@ class AnalogRGB {
 
 public:
 
+	AnalogRGB(int, int, int);
+	void init(int, int, int);
+
+	// Store pin information
 	int redPin, greenPin, bluePin;
 
 	// Store the color data RGB
 	int redVal, greenVal, blueVal;
 	int brightness;
 
-	AnalogRGB(int, int, int);
-	void init(int, int, int);
-	
-
 	void setBrightness(int);
 	void increaseBrightness();
 	void decreaseBrightness();
 	void setColor(int, int, int);
 	void setColor(int, int, int, int);
+	void fadeTo(int, int, int);
 	void fadeTo(int, int, int, float);
 
 };
+
+extern AnalogRGB AnalogRGBObject;
+
+#endif
