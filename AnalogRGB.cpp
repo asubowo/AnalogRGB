@@ -8,7 +8,11 @@
 
 #include "AnalogRGB.h"
 
-
+/**
+  * Constructor for the AnalogRGB wrapper.
+  * Usage:
+  *		AnalogRGB strip(_redPin, _greenPin, _bluePin);
+  */
 AnalogRGB::AnalogRGB(int _redPin, int _greenPin, int _bluePin) {
 
 	redPin = _redPin;
@@ -28,7 +32,7 @@ void AnalogRGB::init(int red, int green, int blue) {
 }
 
 /**
-  * Sets the RGB strip to the color values given. Don't worry about brightness.
+  * Sets the RGB strip to the color values given. This will override any brightness settings.
   */
 void AnalogRGB::setColor(int red, int green, int blue) {
 	
@@ -55,6 +59,9 @@ void AnalogRGB::setColor(int red, int green, int blue, int brightnessPercentage)
 	setColor(adjustedRed_, adjustedGreen_, adjustedBlue_);
 }	
 
+/**
+  * Sets the brightness of the LED strip by fading to the new target voltage
+  */
 void AnalogRGB::setBrightness(int percentage) {
 
 	int adjustedRed_, adjustedGreen_, adjustedBlue_;
@@ -89,10 +96,6 @@ void AnalogRGB::decreaseBrightness() {
   */
 void AnalogRGB::increaseBrightness() {
 	setBrightness(brightness + BRIGHTNESS_INCREMENT);
-}
-
-void AnalogRGB::fadeTo(int newRed, int newGreen, int newBlue) {
-	fadeTo(newRed, newGreen, newBlue, DEFAULT_FADE);
 }
 
 /**
@@ -135,4 +138,12 @@ void AnalogRGB::fadeTo(int newRed, int newGreen, int newBlue, float speed) {
 		delay(speed);
 	}
 }
+
+/**
+* Fades to the target color with the default fade speed
+*/
+void AnalogRGB::fadeTo(int newRed, int newGreen, int newBlue) {
+	fadeTo(newRed, newGreen, newBlue, DEFAULT_FADE);
+}
+
 
