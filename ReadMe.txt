@@ -2,6 +2,7 @@
 AnalogRGB Project Overview
 ========================================================================
 
+NOTICE!!! THIS REPO IS CURRENTLY UNSTABLE. IT IS USABLE BUT NOT RECOMMENDED.
 
 AnalogRGB.cpp
     This is the main application source file.
